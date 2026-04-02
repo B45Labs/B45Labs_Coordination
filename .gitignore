@@ -1,0 +1,6 @@
+*.pdb
+*.exe
+.env*
+secrets.json
+Thumbs.db
+.DS_Store
