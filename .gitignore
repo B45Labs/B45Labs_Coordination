@@ -1,7 +1,8 @@
 *.pdb
+*.exe
 .env*
 secrets.json
 Thumbs.db
 .DS_Store
 B45LABS_CODING_STANDARD.md
-docs/
+releases.json
