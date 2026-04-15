@@ -1,12 +1,12 @@
 # B45 Labs — Revit Add-in
 
-![Revit](https://img.shields.io/badge/Revit-2023--2026-0696D7?style=flat-square&logo=autodesk&logoColor=white)
+![Revit](https://img.shields.io/badge/Revit-2023--2027-0696D7?style=flat-square&logo=autodesk&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=flat-square)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=flat-square)
-![Version](https://img.shields.io/badge/Version-1.0.3--beta-orange?style=flat-square)
-![.NET](https://img.shields.io/badge/.NET-8.0%20%2F%20net48-512BD4?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.1.0-0696D7?style=flat-square)
+![.NET](https://img.shields.io/badge/.NET-net48%20%2F%208.0%20%2F%2010.0-512BD4?style=flat-square)
 
-> B45 Labs is a productivity-focused Autodesk Revit add-in designed to streamline **coordination**, **auditing**, and **QA/QC** workflows for BIM teams.
+> B45 Labs is a productivity-focused Autodesk Revit add-in designed to streamline **coordination**, **auditing**, **documentation**, and **QA/QC** workflows for BIM teams.
 
 > **Brand note:** Previously released as **BIM Genie**, rebranded to **B45 Labs**.
 
@@ -14,7 +14,7 @@
 
 ## 💛 Support This Project
 
-If B45 Labs saves you time, consider supporting its development:
+B45 Labs is **free to use**. If it saves you time, consider supporting its development:
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-0070BA?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?business=T99CG72PLZ36U&no_recurring=0&item_name=Donate+to+support+B45+Labs%2C+smart+BIM+tools+for+Revit+to+streamline+documentation+and+QA%2FQC.&currency_code=USD)
 
@@ -25,43 +25,60 @@ Your contributions help keep the project alive and growing. Thank you!
 ## 📸 Overview
 
 ![B45 Labs Ribbon](docs/ribbon.png)
-*Full ribbon tab — all commands organized by category*
+*Full ribbon tab — all commands organized by category (QA/QC, Model Management, Utilities, Clash Analysis, Documentation, Analytics, External Tools, Settings).*
 
 ![Check Coordinates](docs/checkcoordinates.png)
-*Check Coordinates — validates Survey Point, Base Point, and Internal Origin*
+*Check Coordinates — validates Survey Point, Project Base Point, and Angle to True North across the main model and linked models. Aligned / Not Aligned / Unloaded states are color-coded for quick scanning.*
 
 ![Check Model Health](docs/checkmodelhealth.png)
-*Check Model Health — full model audit with breakdown by category*
+*Check Model Health — full model audit with breakdown by category.*
+
+![Check Spelling](docs/checkspelling.png)
+*Check Spelling — offline spell-check across Text Notes, Rooms, Sheets, and View Names. Dictionary support for English, Portuguese, and Spanish with a custom BIM vocabulary filter.*
+
+![Find & Replace](docs/findreplace.png)
+*Find & Replace — batch find and replace text across the model with scope controls (Current view / Sheets / Entire project), Sheet Set filtering, case and whole-word options, and a live results grid.*
+
+![Check Levels](docs/checklevels.png)
+*Check Levels — validates level naming, elevation consistency, and ordering across the project.*
 
 ![Check Rooms](docs/checkrooms.png)
-*Check Rooms — room naming, area, and placement validation *(new in v1.0.3)**
+*Check Rooms — room naming, area, and placement validation.*
+
+![Parameter Control](docs/parametercontrol.png)
+*Parameter Control — create, manage, and export shared and project parameters across categories without leaving Revit.*
 
 ![Create Sheets](docs/createsheets.png)
-*Create Sheets — batch sheet creation from a template list*
+*Create Sheets — batch sheet creation from a template list.*
 
 ![Sync Sheet Issue Date](docs/sheetissuedate.png)
-*Sync Sheet Issue Date — batch-update issue date across multiple sheets *(new in v1.0.3)**
+*Sync Sheet Issue Date — batch-update the issue date parameter across sheets based on the latest revision.*
 
 ![User Profile](docs/aboutme.png)
-*My Profile — personalized experience with name, role, industry, and sector*
+*User Profile — personalize your B45 Labs experience with name, role, experience with Revit, and discovery tags.*
 
 ---
 
 ## ✨ Key Features
 
 ### 🔍 QA/QC
-- Coordinate validation (Survey Point / Base Point / Internal Origin)
+- Coordinate validation across main model and linked models
 - Model health checks and diagnostics
 - Level, wall, and room validation
 - Parameter and content auditing
+- Painted-element detection
 
 ### 📄 Documentation
+- Check Spelling across Text Notes, Room Names, Sheet Names, and View Names
+  (offline dictionaries for English, Portuguese, and Spanish)
+- Find and Find & Replace across model text with scope and Sheet Set filters
 - Batch view, schedule, legend, and sheet utilities
 - Sheet issue date synchronization
-- Copy sheets and content from another model
+- Copy sheets and documentation content from another open model
 
 ### ⚙️ Model Management
-- Check and upgrade external Revit file versions
+- Parameter Control — shared and project parameters, batch-create and export
+- Check and upgrade external Revit file versions (works even without a model open)
 - Export/import worksets
 - Select and manage in-place elements
 
@@ -70,9 +87,15 @@ Your contributions help keep the project alive and growing. Thank you!
 - Clash Map from Navisworks exports
 - Resize Clash Spheres
 
+### 📊 Analytics
+- Model Progress Analyzer — capture snapshots of key metrics and track the
+  model's evolution over time
+
 ### 👤 User Profile
-- Name, preferred name, email, role, industry, and sector
-- Avatar and greeting personalized with preferred name
+- Name, preferred name, email, company, role, experience with Revit, and how
+  you found us (multi-select discovery tags with optional free-text details)
+- Avatar and greeting personalized with your preferred name
+- Saved locally in `%AppData%\B45Labs\user-profile.json`
 
 ---
 
@@ -80,9 +103,9 @@ Your contributions help keep the project alive and growing. Thank you!
 
 | Requirement | Details |
 |---|---|
-| Autodesk Revit | 2023, 2024, 2025, or 2026 |
+| Autodesk Revit | 2023, 2024, 2025, 2026 *(full support)* · 2027 *(Beta)* |
 | Operating System | Windows |
-| .NET | net48 (R23/R24) · net8.0-windows (R25/R26) |
+| .NET | net48 (R23/R24) · net8.0-windows (R25/R26) · net10.0-windows (R27 Beta) |
 | Admin rights | May be required depending on install location |
 
 ---
@@ -100,8 +123,10 @@ Your contributions help keep the project alive and growing. Thank you!
 2. Place the `.addin` manifest in the Revit Addins folder.
 3. Ensure dependencies are present and unblocked by Windows.
 
-> **Note:** Revit 2023 and 2024 use the `net48` build.  
+> **Note:**
+> Revit 2023 and 2024 use the `net48` build.
 > Revit 2025 and 2026 use the `net8.0-windows` build.
+> Revit 2027 (Beta) uses the `net10.0-windows` build.
 
 ---
 
@@ -110,8 +135,8 @@ Your contributions help keep the project alive and growing. Thank you!
 ### QA/QC
 | Command | Description |
 |---|---|
-| Check Coordinates | Validates Survey Point / Base Point / Internal Origin |
-| Check Model Health | Full model health audit |
+| Check Coordinates | Validates Survey Point / Project Base Point / True North across links |
+| Check Model Health | Full model health audit with category breakdown |
 | Check Levels | Level naming, elevation, and ordering |
 | Check Walls | Wall types, constraints, and structural parameters |
 | Check Rooms | Room naming, area, and placement |
@@ -121,27 +146,36 @@ Your contributions help keep the project alive and growing. Thank you!
 ### Documentation
 | Command | Description |
 |---|---|
-| Move Views | Batch move views between sheets |
+| Check Spelling | Offline spell-check across text parameters (EN, PT, ES) |
+| Find | Quick single-term search across model text |
+| Find & Replace | Batch find and replace across parameters and elements |
+| Move Elements | Batch move viewports / elements between sheets |
 | Duplicate Views | Duplicate views with options |
 | Copy Legends | Copy legends across sheets |
 | Copy Schedules | Copy schedules across sheets |
+| Copy Documentation | Copy sheet + drafting view content from another open model |
 | Create Sheets | Batch sheet creation |
-| Copy Sheet From Model | Copy sheet content from another model |
 | Sync Sheet Issue Date | Batch-update issue date across sheets |
 
 ### Model Management
 | Command | Description |
 |---|---|
+| Parameter Control | Create, manage, and export shared / project parameters |
 | Toggle Reference Points | Show/hide Survey, Base, and Internal Origin |
 | Get Element Coordinates | Precise element coordinates |
 | Select All In-Place Elements | Batch select in-place families |
 | Export / Import Worksets | Excel-based workset management |
 
+### Analytics
+| Command | Description |
+|---|---|
+| Model Progress Analyzer | Snapshot-based tracking of model evolution |
+
 ### External Tools
 | Command | Description |
 |---|---|
-| Check Model Version | Inspect Revit version of external files |
-| Upgrade Model Version | Batch-upgrade external files |
+| Check Model Version | Inspect Revit version of external files *(no model required)* |
+| Upgrade Model Version | Batch-upgrade external files *(no model required)* |
 
 ---
 
@@ -162,9 +196,10 @@ To improve stability and prioritize development, B45 Labs collects limited, non-
 - Approximate region (country/region, derived from IP — IP is not stored)
 - Anonymous installation and session identifiers
 
-Optionally, if you fill out the User Profile, we also collect: name, email, company, role, and how you found us.
+Optionally, if you fill out the User Profile, we also collect: name, preferred
+name, email, company, role, experience with Revit, and how you found us.
 
-No model data, file paths, file contents, geometry, passwords, or device information is collected.  
+No model data, file paths, file contents, geometry, passwords, or device information is collected.
 See [PRIVACY.md](PRIVACY.md) for full details.
 
 ---
@@ -188,8 +223,8 @@ See [PRIVACY.md](PRIVACY.md) for full details.
 Email: **support@B45Labs.com**
 
 When reporting issues, please include:
-- B45 Labs version
-- Revit version (2023 / 2024 / 2025 / 2026)
+- B45 Labs version (e.g., 1.1.0)
+- Revit version (2023 / 2024 / 2025 / 2026 / 2027 Beta)
 - Steps to reproduce
 - Screenshot (redact sensitive details)
 
@@ -197,5 +232,5 @@ When reporting issues, please include:
 
 ## ©️ Copyright
 
-Copyright (c) 2026 B45 Labs. All rights reserved.  
+Copyright (c) 2026 B45 Labs. All rights reserved.
 Use of this Software is governed by [TERMS.md](TERMS.md).

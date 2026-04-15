@@ -1,6 +1,6 @@
 # B45 Labs – Security Policy
 
-**Last updated:** 2026-03-18
+**Last updated:** 2026-05-01
 
 ## Reporting a vulnerability
 If you believe you have found a security vulnerability in B45 Labs, please report it responsibly:

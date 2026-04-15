@@ -1,7 +1,7 @@
 # B45 Labs – Third-Party Notices
 
-**Last updated:** 2026-03-18
-**Applies to:** B45Labs_Addin v1.0.3 (Revit 2023 / 2024 / 2025 / 2026 builds)
+**Last updated:** 2026-05-01
+**Applies to:** B45Labs_Addin v1.1.0 (Revit 2023 / 2024 / 2025 / 2026 builds; Revit 2027 Beta)
 
 This document lists third-party components used by the B45 Labs software and the applicable licenses.
 
@@ -35,13 +35,14 @@ Recommended workflow:
 
 | Component / Package | Version | License / Terms | Source / Notes |
 |---|---:|---|---|
-| Autodesk Revit API (RevitAPI.dll, RevitAPIUI.dll, etc.) | 2023 / 2024 / 2025 / 2026 | Autodesk EULA | Installed with Autodesk Revit. Referenced only; not redistributed independently. |
-| Microsoft .NET Runtime Components (System.\*, Microsoft.\*) | (fill) | Microsoft Software License Terms | Installed as part of .NET / Windows. Only standard runtime components are used. |
+| Autodesk Revit API (RevitAPI.dll, RevitAPIUI.dll, etc.) | 2023 / 2024 / 2025 / 2026 / 2027 | Autodesk EULA | Installed with Autodesk Revit. Referenced only; not redistributed independently. |
+| Microsoft .NET Runtime Components (System.\*, Microsoft.\*) | (per target framework) | Microsoft Software License Terms | Installed as part of .NET / Windows. Only standard runtime components are used. |
 
 > Note: B45 Labs does **not** distribute Autodesk binaries outside the standard Revit installation.
 >
-> Revit 2023 and 2024 are built against `net48` (B45Labs_Addin_Legacy).  
+> Revit 2023 and 2024 are built against `net48` (B45Labs_Addin_Legacy).
 > Revit 2025 and 2026 are built against `net8.0-windows` (B45Labs_Addin).
+> Revit 2027 (Beta) is built against `net10.0-windows` (B45Labs_Addin).
 
 ### 2.2 Open-source / third-party libraries
 
@@ -51,15 +52,17 @@ These are the main third-party libraries that are redistributed with the B45 Lab
 |---|---:|---|---|
 | BouncyCastle.Cryptography | 2.5.0 | MIT | Cryptography utilities. https://github.com/bcgit/bc-csharp |
 | ClosedXML | 0.104.2 | MIT | Excel export / spreadsheet handling. https://github.com/ClosedXML/ClosedXML |
+| DocumentFormat.OpenXml | 3.1.1 | MIT | Office Open XML (Word/Excel) document handling. https://github.com/dotnet/Open-XML-SDK |
 | IronPython | 3.4.2 | Apache 2.0 | Scripting/runtime. https://github.com/IronLanguages/ironpython3 |
 | Microsoft.CodeAnalysis.Common | 4.12.0 | MIT | Roslyn compiler platform. https://github.com/dotnet/roslyn |
 | Microsoft.CSharp | 4.7.0 | MIT | Microsoft C# runtime helpers. https://github.com/dotnet/runtime |
 | Microsoft.IO.RecyclableMemoryStream | 3.0.1 | MIT | Memory stream pooling. https://github.com/microsoft/Microsoft.IO.RecyclableMemoryStream |
 | Microsoft.Web.WebView2 | 1.0.2957.106 | MIT | Embedded web UI surface. https://github.com/MicrosoftEdge/WebView2Feedback |
 | Microsoft.Win32.Registry.AccessControl | 9.0.2 | MIT | Windows Registry ACL helpers. https://github.com/dotnet/runtime |
+| Microsoft-WindowsAPICodePack-Shell | 1.1.5 | MS-PL | Shell / dialog helpers. Package referenced but no longer used by the commands at runtime; retained only for transitive dependency graph stability. https://github.com/aybe/Windows-API-Code-Pack-1.1 |
 | Newtonsoft.Json | 13.0.3 | MIT | JSON serialization. https://www.newtonsoft.com/json |
 | PdfSharpCore | 1.3.65 | MIT | PDF generation utilities. https://github.com/ststeiger/PdfSharpCore |
-| Revit_AI_Main_Versions_API_x64 | 2025.0.0 | (internal) | Internal package (B45 Labs). Validate distribution scope and licensing internally. |
+| Revit_All_Main_Versions_API_x64 | per Revit version | Autodesk EULA | NuGet wrapper around the Autodesk Revit API used for R25 / R26. Referenced only; not redistributed. https://www.nuget.org/packages/Revit_All_Main_Versions_API_x64 |
 | System.Data.SQLite | 1.0.119 | Public Domain / SQLite License | SQLite database engine wrapper. https://www.sqlite.org |
 | System.Diagnostics.EventLog | 8.0.0 | MIT | Windows Event Log integration. https://github.com/dotnet/runtime |
 | System.Diagnostics.PerformanceCounter | 8.0.0 | MIT | Windows performance counters. https://github.com/dotnet/runtime |
@@ -67,9 +70,10 @@ These are the main third-party libraries that are redistributed with the B45 Lab
 | System.Management | 9.0.1 | MIT | WMI/management APIs. https://github.com/dotnet/runtime |
 | System.Net.Http | 4.3.4 | MIT | HTTP client stack. https://github.com/dotnet/runtime |
 | System.Runtime.WindowsRuntime.UI.Xaml | 4.7.0 | MIT | WindowsRuntime/XAML interop helpers. https://github.com/dotnet/runtime |
-| System.Security.AccessControl | 6.0.1 | MIT | Access control APIs. https://github.com/dotnet/runtime |
+| System.Security.AccessControl | 6.0.0 | MIT | Access control APIs. https://github.com/dotnet/runtime |
 | System.Security.Cryptography.Pkcs | 9.0.2 | MIT | PKCS crypto APIs. https://github.com/dotnet/runtime |
 | System.Security.Cryptography.Xml | 9.0.2 | MIT | XML signature APIs. https://github.com/dotnet/runtime |
+| WeCantSpell.Hunspell | 7.0.1 | MPL 2.0 / LGPL | Managed Hunspell port used by the Check Spelling command. https://github.com/aarondandy/WeCantSpell.Hunspell |
 
 ---
 
@@ -80,7 +84,7 @@ Some licenses require that their full text be included with any redistribution.
 ### 3.1 MIT-licensed components
 Ship: `LICENSES\MIT.txt`
 
-Components: ClosedXML, Newtonsoft.Json, PdfSharpCore, BouncyCastle.Cryptography, and all `Microsoft.*` / `System.*` packages listed above.
+Components: ClosedXML, DocumentFormat.OpenXml, Newtonsoft.Json, PdfSharpCore, BouncyCastle.Cryptography, and all `Microsoft.*` / `System.*` packages listed above.
 
 ### 3.2 Apache 2.0-licensed components
 Ship: `LICENSES\Apache-2.0.txt`
@@ -91,6 +95,19 @@ Components: IronPython. Include any required NOTICE files per component.
 Ship: `LICENSES\SQLite.txt`
 
 Component: System.Data.SQLite / SQLite.Interop — SQLite License (Public Domain).
+
+### 3.4 MPL 2.0-licensed components
+Ship: `LICENSES\MPL-2.0.txt`
+
+Component: WeCantSpell.Hunspell (dual-licensed MPL 2.0 / LGPL). The MPL 2.0
+text must be shipped alongside the add-in.
+
+### 3.5 Microsoft Public License (MS-PL)
+Ship: `LICENSES\MS-PL.txt`
+
+Component: Microsoft-WindowsAPICodePack-Shell — MS-PL. Although no longer
+referenced by the current commands, the package is still part of the
+distributed dependency graph.
 
 ---
 

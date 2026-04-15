@@ -5,6 +5,101 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [1.1.0] – 2026-05-01
+
+> Check Spelling, Find & Replace, major command rebuilds, and a full platform upgrade.
+
+### Added
+- **New Commands (3)**
+  - **Check Spelling** — detects spelling errors across text parameters in the model,
+    with offline dictionary support (en-US, pt-BR, es-ES) and a custom BIM vocabulary
+    filter. Project dictionary supports Export/Import.
+  - **Find & Replace** — batch find and replace text across parameters and elements
+    throughout the model in a single non-modal operation.
+  - **Find** — quick single-term search across model text parameters.
+- **Website** — full documentation hub accessible directly from the ribbon. Includes
+  command-by-command explanations, short video tutorials, step-by-step guides,
+  screenshots, and a user roadmap where users can request features, track
+  development, and report issues.
+- **Stripe** — support/donation platform upgraded to Stripe for a smoother,
+  more reliable experience.
+- **Platform — Revit 2027 (Beta)** — experimental support for Revit 2027 via
+  `net10.0-windows` build configuration.
+
+### Changed
+- **Copy Detail Sheets** — fully rebuilt engine and UX. Faster, more reliable,
+  and significantly smoother to use.
+- **Create Sheets** — rebuilt from the ground up with a more fluid UX and
+  improved error handling throughout.
+- **Check Levels, Check Walls, Check Rooms** — UX improvements and expanded
+  usage data collection for better analytics.
+- **Check Coordinates** — graphical and UX improvements.
+- **Parameter Control** — UX refinements.
+- **User Profile** — Complete window redesign. New two-column layout with avatar
+  card and profile-completion progress. Added *Experience with Revit* selector and
+  multi-select discovery tags (with free-text detail for *Other* and
+  *Conference / talk*). Legacy saved profiles are migrated automatically.
+  Ribbon button label updated to *User Profile*.
+- **Sync Sheet Issue Date** — UX improvements.
+- **Move Views, Copy View to Sheet, Copy Legends, Copy Schedules** — stability
+  improvements across the Documentation panel commands.
+- **Documentation panel availability** — *Copy Legends* and *Copy Schedules*
+  now require an active sheet (were always enabled); *Create Sheets* and
+  *Sync Sheet Issue Date* are now always enabled (previously required an
+  active sheet). Behavior now matches what each command actually needs.
+- **Check Model Version / Upgrade Model Version** — now accessible without
+  an open model.
+- **Security** — security improvements across all commands and data collection
+  paths; usage and performance telemetry refined and validated.
+
+### Fixed
+- PDF, Excel, and other export operations — stability and output corrections.
+
+### Notes
+- Full support: **Revit 2023, 2024, 2025, and 2026**.
+- Beta support: **Revit 2027**.
+- Feedback and bug reports: [support@b45labs.com](mailto:support@b45labs.com)
+
+---
+
+## [1.0.4] – 2026-04-06
+
+> The biggest update yet — 4 new features, a smarter parameter workflow,
+> and a full stability pass across the entire add-in.
+
+### Added
+- **New Commands (4)**
+  - **Parameter Control** — the most requested feature is here. Create, manage, and
+    export shared and project parameters without ever leaving Revit. Batch-create
+    parameters across multiple categories and groups, inspect everything bound to
+    your model, and export to a Revit-ready `.txt` or Excel file in one click.
+  - **Model Progress Analyzer** — track your model's evolution over time. Capture
+    snapshots of 14+ key metrics and compare them as the project develops. Snapshots
+    travel with your `.rvt` file — no external database, no extra steps.
+  - **My Profile** — personalize your B45 Labs experience. Set your name, company,
+    role, and industry. Your preferred name appears in your greeting every time you
+    open the add-in.
+  - **Website Button** — quick access to the B45 Labs website directly from the
+    ribbon. Release notes, documentation, and roadmap always one click away.
+
+### Changed
+- **Check Levels** — more reliable, with improved error handling and edge case coverage.
+- **Check Walls** — batch processing stability improvements.
+- **Check Parameters** — broader parameter coverage and cleaner error reporting.
+- **Code Quality** — general stability pass across all existing commands.
+- **Security** — full audit completed. No sensitive data is collected, stored,
+  or transmitted.
+
+### Fixed
+- **Telemetry** — resolved stability issues in the background data pipeline,
+  including session tracking and thread-safety fixes.
+
+### Notes
+- Compatible with **Revit 2023, 2024, 2025, and 2026**.
+- Feedback and bug reports: [support@b45labs.com](mailto:support@b45labs.com)
+
+---
+
 ## [1.0.3] – 2026-03-18 *(Beta)*
 
 ### Added

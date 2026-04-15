@@ -1,7 +1,7 @@
 # B45 Labs — End User License Agreement (EULA)
 
 **Effective date:** 2026-01-27
-**Last updated:** 2026-03-18
+**Last updated:** 2026-05-01
 
 Copyright (c) 2026 B45 Labs. All rights reserved.
 
@@ -104,7 +104,10 @@ To improve stability, reliability, and product development, the Software may col
 - Approximate region (country/region).
 - Device and performance signals (e.g., OS version, screen resolution, RAM class).
 - Revit username (as shown in the Revit environment).
-- **User Profile data voluntarily provided** (name, preferred name, company, role, industry, sector) — stored locally on the user's machine and optionally synced to B45 Labs servers in the background.
+- **User Profile data voluntarily provided** (full name, preferred name, email,
+  company, role, experience with Revit, and selected discovery tags / free-text
+  detail) — stored locally on the user's machine in `%AppData%\B45Labs\user-profile.json`
+  and optionally synced to B45 Labs servers in the background.
 
 ### A2. What We Do NOT Collect
 
@@ -124,7 +127,8 @@ Donations or support transactions (if offered) are processed by third-party prov
 Telemetry is used strictly for internal purposes:
 
 - Debugging and fixing errors.
-- Improving performance and reliability across Revit 2023, 2024, 2025, and 2026.
+- Improving performance and reliability across Revit 2023, 2024, 2025, 2026,
+  and experimental support for 2027.
 - Prioritizing features and roadmap planning.
 - Monitoring distribution health (versions, compatibility signals).
 - Producing aggregated, anonymized metrics.
