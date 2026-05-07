@@ -5,6 +5,98 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [1.2.0] – 2026-05-06
+
+> Content Browser launches, Warnings Breakdown joins Check Model Health,
+> a brand-new cross-sheet workflow, and Revit 2027 is now fully supported.
+
+### Added
+- **Content Browser** — a new dockable pane to browse, preview, and load
+  content directly into the active model. Two sections (your active model
+  and your external libraries), each with sub-tabs for:
+  - **Families** (loadable `.rfa` from disk and from any open document)
+  - **System types** (Walls, Floors, Ceilings, Roofs, Pipes, Ducts, and
+    more — apply to selection or import to the active model)
+  - **Materials**
+  - **Patterns** (drafting and model fill patterns)
+  - **Drafting Views** (single-click activate, double-click cross-doc
+    insert with auto-rename)
+
+  Includes global search, Favorites and Recents (universal across tabs),
+  filter modes (All/Favorites/Recents), thumbnail previews, multiple
+  layout/size options, and adaptive layout for narrow dock widths.
+- **Place on Existing Sheet** — a new command under *Import from Model*.
+  Pick a source model, choose a sheet, pick the views/elements you want,
+  and place them on a target sheet in the current model — same position
+  or centered, with the source title block brought along.
+- **Warnings Breakdown** — Check Model Health now opens a dedicated
+  Warnings window with filters, statistics, expandable rows, element-ID
+  copy-to-clipboard, and CSV export.
+- **Visible Modules** — a new dropdown to show or hide ribbon buttons
+  individually (13 modules covered). Changes apply on the fly without
+  restarting Revit; a plugin update automatically restores hidden
+  buttons so newly added features are discoverable.
+
+### Changed
+- **Check Model Health** — threshold colors on the main panel, the
+  Warnings card is now a single-click entry into the new Warnings
+  Breakdown window, and the rest of the screen gets out of the way
+  while you drill in.
+- **Model Progress Analyzer** — snapshot timestamps now display in your
+  local time (previously UTC), with the offset prefixed (e.g.
+  `UTC-04:00`) so the date never feels ambiguous. Comparison view also
+  refined for clearer side-by-side reading.
+- **Documentation panel** — *Copy Detail Sheets* received a visual
+  refresh and a sheet-number fix; *Copy to Sheet* commands consolidated
+  into a single, cleaner workflow; *Import from Model* UX cleaned up to
+  match the rest of the panel.
+- **Upgrade Model Version** — new Settings dialog with per-extension
+  destinations and a polished file-source picker; `.rte` templates now
+  upgrade through the correct project-document fallback.
+- **Sync Sheet Issue Date** — replaced the native message boxes with the
+  branded B45 dialog for visual consistency.
+- **Localization (groundwork)** — broad refactor that replaces
+  name-based Revit lookups with language-independent IDs throughout the
+  add-in. Combined with new shared terminology, this is the foundation
+  for full multi-language UI support — Portuguese (pt-BR) already
+  rendering correctly behind the scenes; the official multi-language
+  release lands in the next version.
+- **Window centering** — every command window now centers consistently
+  over the Revit window, including on multi-monitor setups. The branded
+  *InfoDialog* uses the same logic.
+- **Stability pass** — across the full add-in: ribbon icon refresh on
+  theme change, multi-monitor positioning fixes (Find / Find &
+  Replace / Check Spelling), and a long tail of polish across commands.
+
+### Fixed
+- **Resize Clash Spheres** — scope-combo regression introduced in v1.1.0
+  is resolved.
+- **Check Spelling** — v1.1.0 regression resolved; window now opens and
+  centers correctly on every monitor configuration.
+
+### Security
+- **PdfSharp 6.2.4** — replaced the previous PDF library to drop the
+  ImageSharp CVE chain entirely. No paid-license dependency.
+- **Update Gate** — HTTPS host allowlist on download URLs and signature
+  verification scaffolding for auto-updates.
+- **OpenMcdf 2.4.1** — combined with a new RFA input guard, neutralizes
+  the GHSA-jxpf-xq2m-q525 advisory at the parser entry point.
+- **Telemetry** — error messages are now PII-sanitized before being
+  written to the local log. The unobserved-task exception handler now
+  ignores exceptions thrown entirely by other Revit add-ins running in
+  the same process, eliminating the bulk of cross-add-in noise from the
+  error pipeline.
+
+### Notes
+- Full support: **Revit 2023, 2024, 2025, 2026, and 2027** (Revit 2027
+  promoted from Beta to full support).
+- Multi-language UI (Portuguese first, more to follow) ships in the
+  next release — the v1.2.0 work is the groundwork that makes it
+  possible.
+- Feedback and bug reports: [support@b45labs.com](mailto:support@b45labs.com)
+
+---
+
 ## [1.1.0] – 2026-05-01
 
 > Check Spelling, Find & Replace, major command rebuilds, and a full platform upgrade.

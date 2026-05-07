@@ -3,7 +3,7 @@
 ![Revit](https://img.shields.io/badge/Revit-2023--2027-0696D7?style=flat-square&logo=autodesk&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=flat-square)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=flat-square)
-![Version](https://img.shields.io/badge/Version-1.1.0-0696D7?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.2.0-0696D7?style=flat-square)
 ![.NET](https://img.shields.io/badge/.NET-net48%20%2F%208.0%20%2F%2010.0-512BD4?style=flat-square)
 
 > B45 Labs is a productivity-focused Autodesk Revit add-in designed to streamline **coordination**, **auditing**, **documentation**, and **QA/QC** workflows for BIM teams.
@@ -223,8 +223,8 @@ See [PRIVACY.md](PRIVACY.md) for full details.
 Email: **support@B45Labs.com**
 
 When reporting issues, please include:
-- B45 Labs version (e.g., 1.1.0)
-- Revit version (2023 / 2024 / 2025 / 2026 / 2027 Beta)
+- B45 Labs version (e.g., 1.2.0)
+- Revit version (2023 / 2024 / 2025 / 2026 / 2027)
 - Steps to reproduce
 - Screenshot (redact sensitive details)
 
