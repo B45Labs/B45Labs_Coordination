@@ -1,7 +1,7 @@
 # B45 Labs — End User License Agreement (EULA)
 
 **Effective date:** 2026-01-27
-**Last updated:** 2026-05-01
+**Last updated:** 2026-07-08
 
 Copyright (c) 2026 B45 Labs. All rights reserved.
 
@@ -96,29 +96,35 @@ Email: support@B45Labs.com
 
 ### A1. What We Collect
 
-To improve stability, reliability, and product development, the Software may collect limited telemetry:
+To improve stability, reliability, and product development, the Software may collect
+limited telemetry. Collection is consent-based and can be turned off in the in-app
+My Profile window:
 
 - Commands executed and usage counts.
-- Error logs and diagnostic events.
-- Non-sensitive model metadata (e.g., model name, total element count, total link count).
-- Approximate region (country/region).
-- Device and performance signals (e.g., OS version, screen resolution, RAM class).
-- Revit username (as shown in the Revit environment).
-- **User Profile data voluntarily provided** (full name, preferred name, email,
+- Error logs and diagnostic events (file paths, model file names, and email addresses
+  are redacted before transmission).
+- Add-in version, build number, and the Revit version and interface language.
+- Approximate region (country/region, derived from your IP at submission — your IP is
+  not stored).
+- Anonymous installation and session identifiers.
+- **User Profile data (voluntary, opt-in)** — full name, preferred name, email,
   company, role, experience with Revit, and selected discovery tags / free-text
-  detail) — stored locally on the user's machine in `%AppData%\B45Labs\user-profile.json`
-  and optionally synced to B45 Labs servers in the background.
+  detail — stored **encrypted** on the user's machine at `%AppData%\B45Labs\user-profile.enc`
+  and synced to B45 Labs servers **only if you opt in** to the optional data tier.
 
 ### A2. What We Do NOT Collect
 
-We do not intentionally collect sensitive personal data, such as:
+We do not intentionally collect sensitive personal data, and we do not collect:
 
 - Health data, biometric identifiers, or government IDs.
 - Precise geolocation (street address / GPS coordinates).
 - Financial account data or payment information.
 - Authentication credentials or passwords.
 - Project file contents, drawings, geometry, or BIM data.
-- File paths or folder locations.
+- Revit model names, element counts, link counts, or any project/model metadata.
+- File paths, folder locations, or file names.
+- Your Revit or Windows username.
+- Device or hardware characteristics (CPU, RAM, screen resolution) or operating-system details.
 
 Donations or support transactions (if offered) are processed by third-party providers. B45 Labs does not receive or store payment details.
 
@@ -128,7 +134,7 @@ Telemetry is used strictly for internal purposes:
 
 - Debugging and fixing errors.
 - Improving performance and reliability across Revit 2023, 2024, 2025, 2026,
-  and experimental support for 2027.
+  and 2027.
 - Prioritizing features and roadmap planning.
 - Monitoring distribution health (versions, compatibility signals).
 - Producing aggregated, anonymized metrics.
@@ -143,6 +149,6 @@ Usage and diagnostics data may be retained for up to **24 months** unless a long
 
 ### A6. Your Choices
 
-You may contact us to request information about data associated with your usage, or to request correction or deletion where applicable. You may choose not to use the Software if you disagree with telemetry collection. Certain functions may rely on diagnostic logging for support and troubleshooting.
+You control collection from the in-app **My Profile** window: a master **"Share anonymous usage data"** toggle turns telemetry off entirely, an **"Also sync my user profile"** toggle (off by default) controls the optional profile tier, and **Export my data** / **Erase my data** let you download or delete everything B45 holds for your install, including a server-side deletion request. You may also contact us for any of the above.
 
 Contact: support@B45Labs.com

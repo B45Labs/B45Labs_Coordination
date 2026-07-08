@@ -1,14 +1,14 @@
-# B45 Labs — Revit Add-in
+# B45 Labs · Coordination — Revit Add-in
 
 ![Revit](https://img.shields.io/badge/Revit-2023--2027-0696D7?style=flat-square&logo=autodesk&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=flat-square)
 ![License](https://img.shields.io/badge/License-Proprietary-red?style=flat-square)
-![Version](https://img.shields.io/badge/Version-1.2.0-0696D7?style=flat-square)
+![Version](https://img.shields.io/badge/Version-2.0.0-0696D7?style=flat-square)
 ![.NET](https://img.shields.io/badge/.NET-net48%20%2F%208.0%20%2F%2010.0-512BD4?style=flat-square)
 
 > B45 Labs is a productivity-focused Autodesk Revit add-in designed to streamline **coordination**, **auditing**, **documentation**, and **QA/QC** workflows for BIM teams.
 
-> **Brand note:** Previously released as **BIM Genie**, rebranded to **B45 Labs**.
+> **Brand note:** B45 Labs is now a suite — **Coordination** (this add-in), **Library**, and **Connect**. Previously released as **BIM Genie**.
 
 ---
 
@@ -63,9 +63,10 @@ Your contributions help keep the project alive and growing. Thank you!
 
 ### 🔍 QA/QC
 - Coordinate validation across main model and linked models
-- Model health checks and diagnostics
-- Level, wall, and room validation
-- Parameter and content auditing
+- Model health checks and diagnostics, with a drill-down Warnings Breakdown
+- Level, wall, room, space, and area validation
+- Tag-coverage auditing (Check Annotations) and monitored-element review
+- Parameter and content auditing, with inline parameter editing
 - Painted-element detection
 
 ### 📄 Documentation
@@ -103,9 +104,9 @@ Your contributions help keep the project alive and growing. Thank you!
 
 | Requirement | Details |
 |---|---|
-| Autodesk Revit | 2023, 2024, 2025, 2026 *(full support)* · 2027 *(Beta)* |
+| Autodesk Revit | 2023, 2024, 2025, 2026, 2027 *(full support)* |
 | Operating System | Windows |
-| .NET | net48 (R23/R24) · net8.0-windows (R25/R26) · net10.0-windows (R27 Beta) |
+| .NET | net48 (R23/R24) · net8.0-windows (R25/R26) · net10.0-windows (R27) |
 | Admin rights | May be required depending on install location |
 
 ---
@@ -113,10 +114,10 @@ Your contributions help keep the project alive and growing. Thank you!
 ## 📦 Installation
 
 ### Option A — Installer *(recommended)*
-1. Download the latest installer from [**Releases**](https://github.com/Bruno-Senna/B45Labs/releases).
+1. Download the latest installer from [**Releases**](https://github.com/B45Labs/B45Labs_Coordination/releases).
 2. Close Revit before installing.
 3. Run the installer and follow the setup wizard.
-4. Launch Revit and open the **B45 Labs** ribbon tab.
+4. Launch Revit and open the **B45 Labs · Coordination** ribbon tab.
 
 ### Option B — Manual
 1. Copy the add-in bundle (DLLs + dependencies) to your target directory.
@@ -126,7 +127,7 @@ Your contributions help keep the project alive and growing. Thank you!
 > **Note:**
 > Revit 2023 and 2024 use the `net48` build.
 > Revit 2025 and 2026 use the `net8.0-windows` build.
-> Revit 2027 (Beta) uses the `net10.0-windows` build.
+> Revit 2027 uses the `net10.0-windows` build.
 
 ---
 
@@ -140,7 +141,11 @@ Your contributions help keep the project alive and growing. Thank you!
 | Check Levels | Level naming, elevation, and ordering |
 | Check Walls | Wall types, constraints, and structural parameters |
 | Check Rooms | Room naming, area, and placement |
-| Check Parameters | Parameter auditing by category |
+| Check Spaces | MEP space review — Number, Name, Level, offsets, Area, Volume, and HVAC loads |
+| Check Areas | Area editor — Number/Name, Area Scheme filter, Placed / Not Placed / Not Enclosed |
+| Check Annotations | Tag-coverage auditor — Untagged, Wrong-tag, Empty-tag, Orphan, and Duplicate |
+| Check Monitored Elements | Paint, isolate, and select monitored elements |
+| Check Parameters | Parameter auditing with inline value editing, by category |
 | Check Painted Elements | Detects painted materials |
 
 ### Documentation
@@ -154,7 +159,9 @@ Your contributions help keep the project alive and growing. Thank you!
 | Copy Legends | Copy legends across sheets |
 | Copy Schedules | Copy schedules across sheets |
 | Copy Documentation | Copy sheet + drafting view content from another open model |
-| Create Sheets | Batch sheet creation |
+| Create Sheets | Reimagined — modeless, multi-model, Print Sets, sheet-parameter columns, Excel import |
+| Sheet & View Navigator | Step Previous / Next / Parent sheet; jump to any sheet; Page Up/Down on canvas |
+| Import Parameters from Excel | Round-trips Check Parameters values via spreadsheet |
 | Sync Sheet Issue Date | Batch-update issue date across sheets |
 
 ### Model Management
@@ -183,7 +190,7 @@ Your contributions help keep the project alive and growing. Thank you!
 
 B45 Labs includes a built-in update check. When a new version is available, you'll be notified inside Revit.
 
-Download the latest version from [**Releases**](https://github.com/Bruno-Senna/B45Labs/releases).
+Download the latest version from [**Releases**](https://github.com/B45Labs/B45Labs_Coordination/releases).
 
 ---
 
@@ -223,7 +230,7 @@ See [PRIVACY.md](PRIVACY.md) for full details.
 Email: **support@B45Labs.com**
 
 When reporting issues, please include:
-- B45 Labs version (e.g., 1.2.0)
+- B45 Labs version (e.g., 2.0.0)
 - Revit version (2023 / 2024 / 2025 / 2026 / 2027)
 - Steps to reproduce
 - Screenshot (redact sensitive details)

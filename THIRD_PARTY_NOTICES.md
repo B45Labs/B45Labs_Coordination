@@ -1,118 +1,112 @@
-# B45 Labs – Third-Party Notices
+# B45 Labs · Coordination – Third-Party Notices
 
-**Last updated:** 2026-05-01
-**Applies to:** B45Labs_Addin v1.1.0 (Revit 2023 / 2024 / 2025 / 2026 builds; Revit 2027 Beta)
+**Last updated:** 2026-07-08
+**Applies to:** B45 Labs · Coordination v2.0.0 (Revit 2023, 2024, 2025, 2026, 2027 builds)
 
-This document lists third-party components used by the B45 Labs software and the applicable licenses.
+This document lists the third-party components redistributed with the
+B45 Labs · Coordination installer and their applicable licenses.
 
----
-
-## 1. Maintenance
-
-Update this file whenever you:
-- add, remove, or update NuGet packages or other dependencies;
-- start redistributing new runtime components; or
-- add/remove third-party assets in the installer.
-
-Recommended workflow:
-1. Export a list of NuGet dependencies (and other referenced DLLs you redistribute) for each target build.
-2. For each dependency, record at least:
-   - component name,
-   - version,
-   - license type,
-   - project URL or vendor,
-   - whether the full license text must be shipped.
-3. Ensure any required license texts are shipped with the installer (or embedded below).
+B45 Labs' own assemblies (`B45Labs_Coordination.dll`, `B45Labs.Shared.dll`,
+`B45Labs.Connect.Sdk.dll`, `B45Labs.Connect.Contracts.dll`) are proprietary and
+are not listed here. Platform components — the **Autodesk Revit API**
+(`RevitAPI.dll`, `RevitAPIUI.dll`, referenced via the community
+`Revit_All_Main_Versions_API_x64` NuGet package) and the **Microsoft .NET
+runtime** — are referenced where present on the user's machine and are **not**
+redistributed by this installer.
 
 ---
 
-## 2. Third-party components currently redistributed
+## Redistributed third-party libraries
 
-> Fill versions below from your `csproj` / `packages.lock.json` / NuGet UI.  
-> If a component is removed from the installer, remove it from this table as well.
-
-### 2.1 Platform and vendor components
-
-| Component / Package | Version | License / Terms | Source / Notes |
+| Component | Version | License | Source |
 |---|---:|---|---|
-| Autodesk Revit API (RevitAPI.dll, RevitAPIUI.dll, etc.) | 2023 / 2024 / 2025 / 2026 / 2027 | Autodesk EULA | Installed with Autodesk Revit. Referenced only; not redistributed independently. |
-| Microsoft .NET Runtime Components (System.\*, Microsoft.\*) | (per target framework) | Microsoft Software License Terms | Installed as part of .NET / Windows. Only standard runtime components are used. |
+| BouncyCastle.Cryptography | 2.5.0 | MIT | https://github.com/bcgit/bc-csharp |
+| ClosedXML | 0.104.2 | MIT | https://github.com/ClosedXML/ClosedXML |
+| ClosedXML.Parser | 1.0.0 | MIT | https://github.com/ClosedXML/ClosedXML.Parser |
+| DocumentFormat.OpenXml | 3.1.1 | MIT | https://github.com/dotnet/Open-XML-SDK |
+| ExcelNumberFormat | 1.1.0 | MIT | https://github.com/andersnm/ExcelNumberFormat |
+| RBush | 4.0.0 | MIT | https://github.com/viceroypenguin/RBush |
+| Microsoft.Extensions.DependencyInjection.Abstractions | 8.0.x | MIT | https://github.com/dotnet/runtime |
+| Microsoft.Extensions.Logging.Abstractions | 8.0.x | MIT | https://github.com/dotnet/runtime |
+| Newtonsoft.Json | 13.0.3 | MIT | https://www.newtonsoft.com/json |
+| PdfSharp (incl. Charting, BarCodes, Cryptography, Quality, Shared, Snippets, System, WPFonts) | 6.2.4 | MIT | https://github.com/empira/PDFsharp |
+| SixLabors.Fonts | 1.0.0 | Apache-2.0 | https://github.com/SixLabors/Fonts |
+| System.Data.SQLite (`System.Data.SQLite.dll` + `SQLite.Interop.dll`) | 1.0.119 | Public Domain / SQLite License | https://www.sqlite.org |
+| System.IO.Packaging | 8.0.x | MIT | https://github.com/dotnet/runtime |
+| System.Security.Cryptography.Pkcs | 8.0.x | MIT | https://github.com/dotnet/runtime |
+| WeCantSpell.Hunspell | 7.0.1 | MIT | https://github.com/aarondandy/WeCantSpell.Hunspell |
 
-> Note: B45 Labs does **not** distribute Autodesk binaries outside the standard Revit installation.
->
-> Revit 2023 and 2024 are built against `net48` (B45Labs_Addin_Legacy).
-> Revit 2025 and 2026 are built against `net8.0-windows` (B45Labs_Addin).
-> Revit 2027 (Beta) is built against `net10.0-windows` (B45Labs_Addin).
-
-### 2.2 Open-source / third-party libraries
-
-These are the main third-party libraries that are redistributed with the B45 Labs installer:
-
-| Component / Package | Version | License | Source / Notes |
-|---|---:|---|---|
-| BouncyCastle.Cryptography | 2.5.0 | MIT | Cryptography utilities. https://github.com/bcgit/bc-csharp |
-| ClosedXML | 0.104.2 | MIT | Excel export / spreadsheet handling. https://github.com/ClosedXML/ClosedXML |
-| DocumentFormat.OpenXml | 3.1.1 | MIT | Office Open XML (Word/Excel) document handling. https://github.com/dotnet/Open-XML-SDK |
-| IronPython | 3.4.2 | Apache 2.0 | Scripting/runtime. https://github.com/IronLanguages/ironpython3 |
-| Microsoft.CodeAnalysis.Common | 4.12.0 | MIT | Roslyn compiler platform. https://github.com/dotnet/roslyn |
-| Microsoft.CSharp | 4.7.0 | MIT | Microsoft C# runtime helpers. https://github.com/dotnet/runtime |
-| Microsoft.IO.RecyclableMemoryStream | 3.0.1 | MIT | Memory stream pooling. https://github.com/microsoft/Microsoft.IO.RecyclableMemoryStream |
-| Microsoft.Web.WebView2 | 1.0.2957.106 | MIT | Embedded web UI surface. https://github.com/MicrosoftEdge/WebView2Feedback |
-| Microsoft.Win32.Registry.AccessControl | 9.0.2 | MIT | Windows Registry ACL helpers. https://github.com/dotnet/runtime |
-| Microsoft-WindowsAPICodePack-Shell | 1.1.5 | MS-PL | Shell / dialog helpers. Package referenced but no longer used by the commands at runtime; retained only for transitive dependency graph stability. https://github.com/aybe/Windows-API-Code-Pack-1.1 |
-| Newtonsoft.Json | 13.0.3 | MIT | JSON serialization. https://www.newtonsoft.com/json |
-| PdfSharpCore | 1.3.65 | MIT | PDF generation utilities. https://github.com/ststeiger/PdfSharpCore |
-| Revit_All_Main_Versions_API_x64 | per Revit version | Autodesk EULA | NuGet wrapper around the Autodesk Revit API used for R25 / R26. Referenced only; not redistributed. https://www.nuget.org/packages/Revit_All_Main_Versions_API_x64 |
-| System.Data.SQLite | 1.0.119 | Public Domain / SQLite License | SQLite database engine wrapper. https://www.sqlite.org |
-| System.Diagnostics.EventLog | 8.0.0 | MIT | Windows Event Log integration. https://github.com/dotnet/runtime |
-| System.Diagnostics.PerformanceCounter | 8.0.0 | MIT | Windows performance counters. https://github.com/dotnet/runtime |
-| System.Drawing.Common | 8.0.3 | MIT | Drawing primitives. https://github.com/dotnet/runtime |
-| System.Management | 9.0.1 | MIT | WMI/management APIs. https://github.com/dotnet/runtime |
-| System.Net.Http | 4.3.4 | MIT | HTTP client stack. https://github.com/dotnet/runtime |
-| System.Runtime.WindowsRuntime.UI.Xaml | 4.7.0 | MIT | WindowsRuntime/XAML interop helpers. https://github.com/dotnet/runtime |
-| System.Security.AccessControl | 6.0.0 | MIT | Access control APIs. https://github.com/dotnet/runtime |
-| System.Security.Cryptography.Pkcs | 9.0.2 | MIT | PKCS crypto APIs. https://github.com/dotnet/runtime |
-| System.Security.Cryptography.Xml | 9.0.2 | MIT | XML signature APIs. https://github.com/dotnet/runtime |
-| WeCantSpell.Hunspell | 7.0.1 | MPL 2.0 / LGPL | Managed Hunspell port used by the Check Spelling command. https://github.com/aarondandy/WeCantSpell.Hunspell |
+> The **Revit 2023 / 2024** (net48) builds additionally ship the following
+> Microsoft compatibility packages, all **MIT**-licensed and sourced from
+> https://github.com/dotnet/runtime: `Microsoft.Bcl.AsyncInterfaces`,
+> `Microsoft.Bcl.HashCode`, `System.Buffers`, `System.Memory`,
+> `System.Numerics.Vectors`, `System.Runtime.CompilerServices.Unsafe`,
+> `System.Security.AccessControl`, `System.Security.Principal.Windows`, and
+> `System.Threading.Tasks.Extensions`. They are absent from the net8 / net10
+> (Revit 2025 / 2026 / 2027) builds, where the runtime provides them natively.
 
 ---
 
-## 3. License texts
+## License texts
 
-Some licenses require that their full text be included with any redistribution.
+### MIT License
 
-### 3.1 MIT-licensed components
-Ship: `LICENSES\MIT.txt`
+Applies to BouncyCastle.Cryptography, ClosedXML, ClosedXML.Parser,
+DocumentFormat.OpenXml, ExcelNumberFormat, RBush, Newtonsoft.Json, PdfSharp,
+WeCantSpell.Hunspell, and the Microsoft `Microsoft.Extensions.*`, `System.*`, and
+`Microsoft.Bcl.*` packages listed above.
 
-Components: ClosedXML, DocumentFormat.OpenXml, Newtonsoft.Json, PdfSharpCore, BouncyCastle.Cryptography, and all `Microsoft.*` / `System.*` packages listed above.
+```
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### 3.2 Apache 2.0-licensed components
-Ship: `LICENSES\Apache-2.0.txt`
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Components: IronPython. Include any required NOTICE files per component.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
-### 3.3 SQLite
-Ship: `LICENSES\SQLite.txt`
+Copyright holders (non-exhaustive):
+- BouncyCastle.Cryptography — Copyright (c) The Legion of the Bouncy Castle Inc. (https://www.bouncycastle.org)
+- ClosedXML / ClosedXML.Parser — Copyright (c) ClosedXML contributors
+- DocumentFormat.OpenXml — Copyright (c) .NET Foundation and Contributors
+- ExcelNumberFormat — Copyright (c) Anders Marzi Tornblad
+- RBush — Copyright (c) viceroypenguin and contributors
+- Newtonsoft.Json — Copyright (c) James Newton-King
+- PdfSharp — Copyright (c) empira Software GmbH
+- WeCantSpell.Hunspell — Copyright (c) Aaron Dandy
+- Microsoft.Extensions.* / System.* / Microsoft.Bcl.* — Copyright (c) .NET Foundation and Contributors
 
-Component: System.Data.SQLite / SQLite.Interop — SQLite License (Public Domain).
+### Apache License 2.0 (SixLabors.Fonts)
 
-### 3.4 MPL 2.0-licensed components
-Ship: `LICENSES\MPL-2.0.txt`
+SixLabors.Fonts 1.0.0 is licensed under the **Apache License, Version 2.0**.
+The full license text is available at https://www.apache.org/licenses/LICENSE-2.0.
+It is redistributed here in unmodified binary form; the corresponding source is
+available at https://github.com/SixLabors/Fonts.
 
-Component: WeCantSpell.Hunspell (dual-licensed MPL 2.0 / LGPL). The MPL 2.0
-text must be shipped alongside the add-in.
+Copyright (c) Six Labors.
 
-### 3.5 Microsoft Public License (MS-PL)
-Ship: `LICENSES\MS-PL.txt`
+### SQLite (System.Data.SQLite)
 
-Component: Microsoft-WindowsAPICodePack-Shell — MS-PL. Although no longer
-referenced by the current commands, the package is still part of the
-distributed dependency graph.
+SQLite is in the **Public Domain**. The System.Data.SQLite ADO.NET wrapper is
+distributed under the same terms. See https://www.sqlite.org/copyright.html.
 
 ---
 
-## 4. Questions
+## Questions
 
-For questions about licensing or third-party components in B45 Labs, contact:
+For questions about licensing or third-party components in
+B45 Labs · Coordination, contact:
 
+- **Vendor:** B45 Labs
 - **Email:** support@b45labs.com
