@@ -5,6 +5,119 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [2.0.0] – 2026-07-08
+
+> **B45 Labs is now B45 Labs · Coordination** — and this is the biggest release we've ever shipped.
+> A ground-up visual redesign that follows your Revit theme, the whole suite in five languages, a
+> wave of new QA/QC tools, a reimagined Create Sheets, and a privacy-first data model. This is the
+> release that turns B45 Labs from a toolset into a coordination platform.
+
+This version also marks the start of the **B45 Labs product line**: **Library** (Content Browser,
+Family Manager, Detail Library) now ships as its own product, and **Connect** — the in-Revit
+assistant — is on the way.
+
+### Added
+- **Check Spaces** — a new MEP QA/QC tool for spaces: review Number, Name, Level, offsets, Area, and
+  Volume alongside HVAC Zone, Space Type, Occupants, and Design-vs-Calculated heating and cooling
+  loads, side by side.
+- **Check Areas** — a new modeless editor for areas: edit Number and Name, filter by Area Scheme, see
+  Perimeter, and catch Placed / Not Placed / Not Enclosed problems at a glance.
+- **Check Annotations** — a new tag-coverage auditor: finds Untagged, Wrong-tag, Empty-tag, Orphan-tag,
+  and Duplicate-mark/tag issues across taggable categories, with Active view / All views / Selected
+  sheets scopes, an in-model QA status you can approve or ignore (saved with the model), graphic
+  highlighting, and reusable presets.
+- **Check Monitored Elements** — a new QA/QC command to paint, isolate, and select monitored elements.
+- **Sheet & View Navigator** — a new modeless palette to step Previous / Next / Parent Sheet in Project
+  Browser order, jump to any sheet, and navigate with Page Up / Page Down on the canvas.
+- **Import Parameters from Excel** — a new command that round-trips with Check Parameters: edit in a
+  spreadsheet, preview grouped by element, and write values back.
+- **Change Language** — a new unified language picker for both the plug-in and Revit, with the ribbon
+  updating live (no restart for plug-in-only changes).
+- **Multi-language interface** — the plug-in is now available in **English, Português (BR), Español,
+  Français, and Русский**. *(The four non-English languages ship as **BETA** — AI-assisted drafts
+  pending native review. Tell us where the wording can be better: support@b45labs.com.)*
+- **Live theme system** — a two-mode theme (fixed or Follow-Revit) where every window re-tints in real
+  time when you switch Revit's light/dark UI. Pick your mode in the Modules dialog.
+- **Personalize B45** — a value-first "Personalize B45" panel and a greeting that welcomes you by name
+  across the plug-in. Your profile is stored on your PC only and never shared.
+- **Broadcast announcements** — an opt-in, signed startup message channel so you hear about new releases
+  and news without leaving Revit.
+- **Export my data / Erase my data** — full data portability: export everything B45 holds for your
+  install, or erase it locally and on our servers, on request.
+
+### Changed
+- **Create Sheets — reimagined**: now modeless, builds one sheet list across multiple open models,
+  supports Print Sets, sheet-parameter columns, number prefixes/suffixes, "update existing by number,"
+  a progress bar, and a redesigned Excel template with date import.
+- **Copy to Sheet, Copy Entire Sheet & Place on Existing Sheet — completely revised**: the cross-sheet
+  and cross-model documentation workflow was reworked and improved — choose exactly what comes along
+  (title blocks, sheet annotations) with tri-state "select all" headers, plus stability and UX polish.
+- **Check Parameters — inline editing**: edit instance and type parameter values right in the grid and
+  write them back, with locked cells dimmed and empty cells flagged.
+- **Warnings Breakdown** — a three-level hierarchy with 3D isolate/highlight, Model vs Documentation
+  grouping, refresh, an opt-in "select in model" toggle, and CSV/XLSX export.
+- **Import Table by Key** — now imports spreadsheets that don't have an Element ID column.
+- **Clear View** — smarter, safer link handling, including a fail-safe "With All Links" mode.
+- **Check Rooms** — a scope selector, immediate modeless Apply, and a Name column that no longer repeats
+  the room number.
+- **"Select in model" is now opt-in** on tools that follow your row selection — browsing a results list
+  no longer changes your model selection unless you turn it on.
+- **Update notifications are now tiered** — a gentle toast for routine updates, a modal only when it
+  matters, replacing the old always-blocking prompt.
+- **Visible Modules** — refined, with whole-panel show/hide toggles and correct anchored positioning;
+  it's also where you pick the theme mode (fixed or Follow-Revit).
+- **Plugin Info (About) — refreshed**: it now lists each installed product's version, follows your Revit
+  theme, and lets you opt in to product-news email updates.
+- **Ribbon refresh** — a cleaner "Coordination" tab, reorganized panels, icon-only stacked commands, and
+  a Help panel that's always visible.
+- **Visual consistency pass** — a unified dark dropdown and checkbox everywhere, a reworked scrollbar
+  across ~47 windows, consistent 32-px grid rows across the Check family, and a full light-theme
+  legibility sweep.
+- **Ribbon icons — full redraw**: the entire icon set was reworked from the ground up — crisp light/dark
+  glyphs at multiple resolutions (one `.ico` per command with a legacy fallback), with missing and
+  mismatched icons reconciled so every command reads as one coherent set across the suite.
+
+### Fixed
+- Fixed a crash on Revit shutdown when copying/placing sheets.
+- Fixed a freeze-then-crash when changing theme or canvas color.
+- Check Coordinates PDF export now works reliably.
+- Create Sheets can import an Excel file while the workbook is open.
+- Check Model Health reads correctly in non-English Revit and no longer aborts on stale references.
+- Correct default 3D view is used in workshared models (Clash Map, Clear Painted).
+- Warnings 3D isolate now applies visually.
+- Fixed several minor display glitches (stray glyphs in undo names, selection colors).
+
+### Security & Privacy
+- **Consent-based, opt-out telemetry**, with your local profile now encrypted at rest (DPAPI) and a path
+  sanitizer that strips file paths from diagnostics.
+- **Data minimization** — B45 no longer collects operating-system or hardware environment data.
+- **Right to erasure** — erase your data locally and request server-side deletion, independent of the
+  telemetry setting.
+- Hardened the auto-update supply chain: signed manifests with replay protection, and the API secret
+  removed from source (injected at build time).
+- Foreign add-in crashes are filtered out of our diagnostics — we only log B45's own errors.
+- Updated bundled libraries to clear a known security advisory (OpenMcdf → 3.1.4).
+
+### Under the Hood
+- Large-model performance: single-pass collectors replace slow O(n²) scans in Check Model Health and
+  parameter checking; per-clash isolation in Clash Map.
+- Stability: read-only-document guards on every write command, hardened background-event handlers to
+  prevent modeless-window crashes, and a sanitizer so raw error text never reaches you.
+- Localization infrastructure and Revit-language detection powering the new multi-language UI.
+- Full Revit 2027 (.NET 10) compatibility, including database interop and the Check Spaces zone API.
+
+### Just for fun
+- 🎮 A couple of easter eggs are hiding in **About Me** to brighten the workday — unlocked by a certain
+  legendary button sequence any retro gamer knows by heart. Happy hunting.
+
+### Notes
+- Full support: **Revit 2023, 2024, 2025, 2026, and 2027**.
+- The four non-English languages ship as **BETA** (AI-assisted drafts). If a translation reads wrong,
+  email support@b45labs.com with the command name, the current text, and your suggested wording.
+- Feedback and bug reports: [support@b45labs.com](mailto:support@b45labs.com)
+
+---
+
 ## [1.2.0] – 2026-05-06
 
 > Content Browser launches, Warnings Breakdown joins Check Model Health,
