@@ -5,6 +5,61 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [2.0.2] – 2026-07-12
+
+> A polish-and-performance release: an Apple-style toast system that replaces interrupting dialogs, a
+> light-theme selection you can actually read, faster startup, and a wave of QA/QC refinements from
+> the field.
+
+### Added
+- **Apple-style notifications** — routine, non-blocking messages now surface as clean floating toasts
+  in the corner of Revit, with a subtle slide-in and auto-dismiss, instead of interrupting your work
+  with a dialog.
+
+### Changed
+- **Light-theme selection, redesigned** — selected rows now use a clear accent-blue highlight with
+  white text, replacing the washed-out look that made values hard to read. Applied consistently across
+  ~35 windows, including View, Element, and Warnings Breakdown and Check Parameters results.
+- **Parameter Control — rename without losing data** — renaming a parameter now preserves its values
+  (including on grouped elements) and keeps it working in schedules and filters. The Rename / Replace
+  dialog and its selection now follow your theme correctly.
+- **Check Parameters** — Refresh a single tab or everything, an opt-in Select-in-model, Ctrl+Enter
+  fill-down, and an in-window Excel import with a simpler, corrected import preview.
+- **Check Walls** — grid combo and numeric cells are now fully editable.
+- **Faster startup** — the update check no longer blocks the splash path, so Revit reaches a usable
+  state sooner, and the critical-update lock is now airtight.
+- **Settings, reorganized** — the Visible Modules launcher moved to the end of the Revit Settings panel
+  and now reads "Settings," and the plug-in launcher is a clearer two-line "Plug-in / Settings."
+- **Window polish** — standardized 32×32 chrome buttons and a unified 1px accent divider across the
+  sheet-command windows.
+
+### Fixed
+- Light theme: dark text on blue accent buttons (Check Model Health), invisible secondary-button hover
+  text (14 windows), and an invisible toast close button (4 toasts).
+- The selection checkbox now stays visible on selected rows.
+- Corrected stale PayPal references — donations are handled through Stripe.
+
+### Platform
+- Full support: Revit 2023, 2024, 2025, 2026, and 2027.
+
+---
+
+## [2.0.1] – 2026-07-10
+
+> A hotfix release polishing the 2.0.0 launch.
+
+### Fixed
+- Fixed a Revit crash when editing combo cells in Check Walls.
+- Light theme — stronger input and combo borders so controls no longer read as washed out.
+- More reliable light/dark theme and language sync across products.
+- Installer — self-heal of the legacy add-in manifest, fixing a duplicate add-in ID load error.
+- Plugin Info — cleaner version display, plus general stability fixes.
+
+### Platform
+- Full support: Revit 2023, 2024, 2025, 2026, and 2027.
+
+---
+
 ## [2.0.0] – 2026-07-08
 
 > **B45 Labs is now B45 Labs · Coordination** — and this is the biggest release we've ever shipped.
