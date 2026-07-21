@@ -5,6 +5,41 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [2.0.3] – 2026-07-20
+
+> A new Model Size tool, a refined interface across the whole suite, and rock-solid
+> Copy & Place Detail Sheets on large models.
+
+### Added
+- **Model Size** — a new tool that pinpoints what's inflating your model's file size and
+  lets you delete unused families in one click, built into a refreshed Check Model Health.
+
+### Changed
+- **Interface refresh** — cleaner, more consistent buttons and dialogs across the whole
+  suite, tuned for both dark and light themes.
+- **Check Spaces** — now modeless: keep working in Revit while the window is open.
+- **Create Sheets** — a resizable Target Models panel and a cleaner layout.
+- **Place on Existing Sheet** — click anywhere on a preview header to collapse it (not just
+  the arrow), plus layout refinements.
+- **Parameter Control** — the category picker is now resizable, with a clearer list and a
+  "Show only selected" toggle.
+- **Sheet Navigator** — smoother fade-in, and it remembers its last position.
+
+### Fixed
+- **Copy & Place Detail Sheets** — reliable on large models now: progressive commit, better
+  view-tab handling, and no freeze when placing viewports.
+- **Light theme** — hard-to-read text and near-invisible button borders fixed across many
+  windows (including the Resize Clash Spheres value field).
+- **Clear View (Preserve Links)** — correctly restores each link's visibility state.
+- **Check Parameters** — the Summary table can be resized by its bottom grip again.
+- **Find** — the Find / Previous / Next buttons no longer clip at the window edge.
+- **Check Coordinates** — the "unconfigured coordinates" notice no longer needs a scrollbar.
+
+### Platform
+- Full support: Revit 2023, 2024, 2025, 2026, and 2027.
+
+---
+
 ## [2.0.2] – 2026-07-12
 
 > A polish-and-performance release: an Apple-style toast system that replaces interrupting dialogs, a
