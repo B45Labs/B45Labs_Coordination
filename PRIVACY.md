@@ -62,7 +62,7 @@ We use collected information strictly for internal purposes, including:
 ## 5. Sharing and Disclosure
 We do not sell your data and we do not share collected data with third parties for advertising or marketing.
 
-We may use trusted service providers to store or process analytics (e.g., hosting or database services). Such providers are used only to support our internal operations and are not authorized to use the information for their own purposes.
+We may use trusted service providers to store or process analytics (e.g., hosting or database services). Such providers are used only to support our internal operations and are not authorized to use the information for their own purposes. Where we rely on a named third-party service — such as **ipwhois.app** for coarse region lookup — that provider is bound to protect the data to the same standard described in this Policy and may not use it for its own purposes.
 
 We may disclose information if required by law, court order, or to protect our rights and the security of the Software.
 
