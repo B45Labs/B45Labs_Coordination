@@ -5,6 +5,130 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [2.2.0] – 2026-10-01
+
+> Check Grids, Copy/Monitor read in both directions, Tips & Tricks, reports that are real tables,
+> the sheet tools reworked, and translations reviewed end to end in Portuguese, Spanish, French
+> and Russian.
+
+### Added
+
+- Check Grids: a read-only check of every grid, compared with your linked models one link at a
+  time. Each pair shows its position from the Project Base Point, the offset and rotation between
+  them, and whether it matches, moved, rotated or exists on one side only. A second tab lists
+  grids with no scope box, unpinned grids, duplicate names, gaps in the numbering and grids off
+  the building's own axis. Click a row to light the grid up in the model, double-click to fly to
+  it, and Reload after you fix.
+- Tips & Tricks: a new first button in the Help panel with short videos, articles, product news
+  and the whole B45 Labs suite. The content comes from b45labs.com, so new tips arrive without
+  updating the plug-in.
+- My Profile: User Profile has a friendlier name, a new switch decides whether B45 Labs mentions
+  its other products, and the export accent colour gains a swatch and a Pick button that opens
+  the Windows colour picker.
+
+### Improved
+
+- Check Monitored Elements shows both directions: what your model monitors and what the links
+  monitor in yours, on two tabs, with a search box and From / To columns that name each model by
+  its title. Levels and grids are hidden unless you ask for them, a status line says when an
+  unloaded link could not be read, and Paint in View now paints walls, floors and columns red in
+  plans and sections, with a Hide links while painting option so the link's original does not
+  cover the result.
+- Upgrade Model Version can skip Revit links, which is much faster on a linked set, and no longer
+  gives up on a model because of one broken element: with Auto-dismiss on, Revit's default fix is
+  applied and listed on the row. That fix can delete the broken element from the upgraded file,
+  and the option says so when you turn it on. A row that still fails shows Revit's own error
+  message.
+- Upgrade Model Version: the worksharing choices now say what they do (a new central with all
+  worksets open, a new central with worksets closed, or no worksharing), the result is saved as a
+  new central and your original central is never modified. Settings is now Output Folders, and
+  the Rename panel can be dragged wider, here and in Check Model Version.
+- Place on Existing Sheet · Select in model: picking on the source sheet is now the selection.
+  The pick opens on what is already checked, highlighted on the canvas, Ctrl-click adds and
+  Shift-click removes, and every sheet you touched ends up with exactly what you picked.
+- Place on Existing Sheet: the Content list reads like the printed sheet, with a Detail column
+  for the detail number and the Title on Sheet as the name. The search matches the printed
+  caption, the view name, the detail number and the sheet number.
+- Place on Existing Sheet: the destination model is picked from a dropdown with its own Show
+  selected only filter, linked models stay hidden behind a Show linked models toggle and are
+  never offered as a destination, the three columns and the two preview rails can be resized and
+  remember their widths, and any sheet or detail opens in a large zoomable preview.
+- Copy Detail Sheets gets the same large preview, hides linked models from the source list, and
+  opens with the preview closed and Auto preview off.
+- Copy Detail Sheets and Place on Existing Sheet: checking a source sheet no longer checks
+  everything on it. The content starts unchecked and you check what you want.
+- The Model Health report is a real report: headline numbers, a table per block, and the warnings
+  in one table with the full sentence wrapped. View and schedule breakdowns are grids instead of
+  long lists.
+- The Check Coordinates export is a real report too: a summary of aligned links, a linked-models
+  table that says Aligned or Check for each point, a difference block for every point that fails,
+  and the Survey Point and Project Base Point values in the main model's units.
+- Exported workbooks are easier to print: table reports get capped columns, wrapped text and a
+  one-page width, and every workbook carries your company name beside the logo.
+- Clash Map shows a Summary beside the status filter: test name, tolerance, distance range and
+  clash counts. The schedule's total row now reads Total Clashes, the right-hand block can be
+  dragged wider, and the window opens centred on Revit.
+- Sheet Navigator follows the Revit window instead of holding a spot on the screen, and Reset
+  position brings that anchoring back. The ribbon button now toggles it, opening or closing it in
+  one Revit does the same in every other Revit you have running, and Esc no longer closes it.
+- Check Walls colour settings end in Cancel, Reset and Apply, with surface, lines and
+  transparency per value.
+- Check Levels: the Tag column is now Alerts, and a level that is both a duplicate name and a
+  duplicate elevation no longer shows its second badge cut in half.
+- Move Views: the destination sheet picker opens with no sheet selected, so a distracted OK can
+  no longer move your views to the first sheet in the list.
+- One look for every notification, anchored to the Revit window instead of the corner of the
+  screen.
+- The plug-in follows Revit's theme by default, and its dark theme now matches Revit's own
+  panels.
+- Minimize, maximize and close look and behave the same in every window.
+- Everything added in this release was reviewed in Portuguese, Spanish, French and Russian.
+
+### Fixed
+
+- Check Levels showed Non-Monitoring on every row when the other disciplines monitor your levels.
+  It now reads Copy/Monitor in both directions and says which side holds the relationship.
+- Sheet Navigator did not come back when you reopened Revit.
+- Select in model, in Place on Existing Sheet and Copy Detail Sheets, never actually opened the
+  source sheet. It now switches to the source model, opens the right sheet and brings the picker
+  back where you left it.
+- Open Sheet in the right-click menu of both sheet pickers did nothing.
+- Match by number in Place on Existing Sheet did nothing until a destination sheet was checked.
+  It now reads the numbers from the source sheets you checked and reports what it matched.
+- Selected rows in Place on Existing Sheet and Copy Detail Sheets showed black text on the blue
+  selection in the light theme.
+- Check Model Health stopped with "The view type does not support Visibility/Graphics Overrides"
+  on models with certain view types.
+- Check Coordinates failed with "Object reference not set to an instance of an object" on a model
+  whose project location could not be read. One unreadable link no longer aborts the report.
+- Check Coordinates: the default coordinates warning could not be dragged and always drew a
+  scrollbar with nothing to scroll.
+- Check Walls "Apply as I open views" could paint the view you had just left. When it has nothing
+  to paint, the status bar now says why.
+- Importing a clash report that B45 produced listed the report's own footer as two clashes.
+- A spreadsheet still open in Excel failed to load in the Check Parameters Preset Manager, in
+  Import Table by Key and in the Clash Map preview. All three now read it while Excel holds it.
+- Chinese, Japanese and Korean text, and status marks such as ✔ and ✖, printed as empty boxes in
+  exported PDFs.
+- PDF export on Revit 2023 and 2024 could fail with a strongly-named assembly error when another
+  add-in had loaded its own copy of the PDF library first. B45 now loads its own copies at
+  startup, which makes that conflict much less likely.
+- Selected rows were unreadable, or used the Windows highlight instead of the B45 selection, in
+  Move Views, Model Progress, Check Parameters, Check Model Version and Upgrade Model Version.
+- Check Model Health's Overview and Size Breakdown could only be dragged by the title text.
+- Maximized windows spilled past the work area, and the maximize button went blank in three
+  windows.
+- Preview images were left behind in the temp folder after every session.
+- The installer no longer deletes your settings in %AppData%\B45Labs when it upgrades, and
+  uninstalling Coordination no longer removes the Library's folder or the shared preferences
+  (logo, company name and colour).
+- The About window's copyright line named a company that does not exist.
+
+### Platform
+- Full support: Revit 2023, 2024, 2025, 2026 and 2027.
+
+---
+
 ## [2.1.1] – 2026-08-08
 
 > Repairs 2.1.0: PDF export threw on Revit 2023 and 2024, Check Levels reported differences
