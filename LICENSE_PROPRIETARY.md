@@ -1,7 +1,7 @@
 # B45 Labs – Proprietary License Notice
 
 **Last updated:** 2026-05-18
-**Applies to:** B45 Labs Revit Add-in v2.0.0 (Revit 2023, 2024, 2025, 2026, 2027) and all accompanying documentation.
+**Applies to:** B45 Labs | Coordination 3.0.0 (Revit 2023, 2024, 2025, 2026, 2027) and all accompanying documentation.
 
 Copyright (c) 2026 B45 Labs. All rights reserved.
 
@@ -29,8 +29,8 @@ Any violation of these restrictions constitutes a material breach of the EULA an
 
 ## References
 
-- `TERMS.md` — full Terms of Use / EULA (binding agreement)
-- `PRIVACY.md` — Privacy Policy
-- `THIRD_PARTY_NOTICES.md` — third-party components and their licenses
+- `TERMS.md`, full Terms of Use / EULA (binding agreement)
+- `PRIVACY.md`, Privacy Policy
+- `THIRD_PARTY_NOTICES.md`, third-party components and their licenses
 
 For licensing inquiries, contact: **support@B45Labs.com**

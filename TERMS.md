@@ -2,7 +2,7 @@
 
 **Effective date:** 2026-01-01  
 **Last updated:** 2026-05-18  
-**Applies to:** B45 Labs Revit Add-in v2.0.0 (Revit 2023, 2024, 2025, 2026, 2027)
+**Applies to:** B45 Labs | Coordination 3.0.0 (Revit 2023, 2024, 2025, 2026, 2027)
 
 This Terms of Use / End User License Agreement (“Agreement”) is a legal agreement between you (“you”, “your”) and B45 Labs (“B45 Labs”, “we”, “our”, “us”) governing your use of the B45 Labs Revit add-in (the “Software”).
 
@@ -46,7 +46,7 @@ Some updates may be required for security, compatibility, or stability reasons. 
 Any donation/support links (if present) are optional. Transactions are handled by third-party providers and are subject to their terms.
 
 ## 5. Telemetry, Diagnostics, and Privacy
-The Software may collect usage, diagnostics, and environment information to improve performance and reliability and to support development.
+The Software may collect usage, diagnostics, and version and language information (not your project data) to improve performance and reliability and to support development.
 
 Details of what is collected and how it is used are described in the **Privacy Policy** (“Privacy Policy”). By using the Software, you acknowledge that you have reviewed the Privacy Policy and agree to the collection and use described there.
 
@@ -66,16 +66,16 @@ Outputs, flags, checks, clash detections, coordinate verifications, sheets, sche
 
 - may be **incomplete**, **inaccurate**, **partial**, **context-dependent**, or **based on assumptions** that do not hold for your specific project;
 - may fail to detect issues that a human reviewer would catch, or may flag false positives;
-- depend entirely on the quality, completeness, and correctness of the input Revit model — "garbage in, garbage out" applies fully;
+- depend entirely on the quality, completeness, and correctness of the input Revit model: "garbage in, garbage out" applies fully;
 - are **never to be relied upon as the sole basis** for any design, coordination, fabrication, procurement, or construction decision.
 
 **Mandatory user verification (double-check).** You expressly acknowledge and agree that:
 
-1. Every output of the Software **must be independently reviewed, cross-checked, and validated by you** — or by a qualified professional under your responsibility — before being used for any project deliverable, coordination action, fabrication order, construction activity, or contractual submission.
+1. Every output of the Software **must be independently reviewed, cross-checked, and validated by you**, or by a qualified professional under your responsibility, before being used for any project deliverable, coordination action, fabrication order, construction activity, or contractual submission.
 2. Such double-check is a **non-delegable obligation** that remains entirely with you, the user. The Software does **not** perform, replace, or reduce this obligation in any way.
 3. You will treat the Software's output as a **starting point**, never as a final certification.
 
-**No liability for on-site / construction-phase outcomes.** To the maximum extent permitted by applicable law, B45 Labs **disclaims any and all liability** for losses, damages, defects, rework, delays, schedule impacts, cost overruns, personal injury, property damage, contractual disputes, or any other consequence arising on the construction site, during fabrication, during procurement, during commissioning, or at any other downstream stage of a project, that may be related — directly or indirectly — to the use of, reliance on, or absence of independent verification of any Software output.
+**No liability for on-site / construction-phase outcomes.** To the maximum extent permitted by applicable law, B45 Labs **disclaims any and all liability** for losses, damages, defects, rework, delays, schedule impacts, cost overruns, personal injury, property damage, contractual disputes, or any other consequence arising on the construction site, during fabrication, during procurement, during commissioning, or at any other downstream stage of a project, that may be related, directly or indirectly, to the use of, reliance on, or absence of independent verification of any Software output.
 
 You acknowledge that the Software is **not a substitute** for professional judgment, coordination protocols, BIM Execution Plan procedures, drawing approval workflows, or formal QA/QC processes. Use of the Software does **not** reduce, shift, or transfer in any way your professional and contractual responsibility for the correctness of the project.
 

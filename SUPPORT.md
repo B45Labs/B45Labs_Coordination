@@ -1,7 +1,7 @@
 # B45 Labs – Support
 
 **Last updated:** 2026-05-18
-**Applies to:** B45 Labs Revit Add-in v2.0.0 (Revit 2023, 2024, 2025, 2026, 2027)
+**Applies to:** B45 Labs | Coordination 3.0.0 (Revit 2023, 2024, 2025, 2026, 2027)
 
 ## 1. Support channels
 - Email: **support@B45Labs.com**

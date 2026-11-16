@@ -1,7 +1,7 @@
-# B45 Labs — End User License Agreement (EULA)
+# B45 Labs | End User License Agreement (EULA)
 
 **Effective date:** 2026-01-27
-**Last updated:** 2026-07-08
+**Last updated:** 2026-11-15
 
 Copyright (c) 2026 B45 Labs. All rights reserved.
 
@@ -16,6 +16,8 @@ By clicking "I accept" or by installing, copying, or using the Software, you agr
 B45 Labs grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to install and use the Software for internal business or personal use, subject to this Agreement.
 
 ---
+
+Free of charge until February 28, 2027. B45 Labs will not charge for the commands in Coordination, Library, Connect and Wayfinder before that date. After that date B45 Labs may introduce paid plans for new versions or features, and will announce them before they apply to you.
 
 ## 2. Restrictions
 
@@ -42,6 +44,8 @@ B45 Labs may provide updates that modify, add, or remove features. You are respo
 Some updates may be required for security, compatibility, or stability reasons. If you choose not to install a required update, some features may not function as intended.
 
 ---
+
+B45 Labs may mark a version of the Software as no longer allowed, for security, compatibility or stability reasons. Such a version shows a notice and, when it was withdrawn for safety, locks its commands until you update. Update checks and notices are made automatically and are not controlled by the usage switch described in Annex A.
 
 ## 5. No Professional Services; User Responsibility
 
@@ -81,7 +85,17 @@ This Agreement is governed by applicable laws of the relevant jurisdiction, with
 
 ---
 
-## 10. Contact
+## 10. Feedback and Submissions
+
+If you choose to send B45 Labs any feedback, suggestions, ideas, bug reports, translation corrections, or other materials regarding the Software ("Feedback"), you grant B45 Labs a perpetual, irrevocable, worldwide, non-exclusive, royalty-free, fully sublicensable and transferable license to use, reproduce, modify, adapt, publish, translate, incorporate into the Software, and otherwise exploit such Feedback for any purpose, without any obligation, attribution, confidentiality, or compensation to you. You represent that you have the right to provide the Feedback and that it does not infringe the rights of any third party. Feedback is provided voluntarily and is not your confidential information.
+
+## 11. Language and Translations
+
+The Software's user interface and documentation may be offered in multiple languages. The English-language version is the authoritative and governing version. Non-English translations (including user-interface text, documentation, and any translated copy of this Agreement) are provided for convenience only and may be incomplete, inaccurate, or out of date. In the event of any conflict or inconsistency between the English version and a translated version, the English version controls. Translations are provided "as is" and create no warranties; the Disclaimer of Warranties and Limitation of Liability sections apply.
+
+Spanish, French and Russian texts are assisted by AI and have not been reviewed by native speakers. Tell us about mistakes with Send Feedback.
+
+## 12. Contact
 
 For licensing or support inquiries:
 
@@ -90,54 +104,68 @@ Email: support@B45Labs.com
 
 ---
 
-## Annex A — Privacy & Telemetry Notice
+## Annex A: Privacy & Telemetry Notice
 
 *This Annex is incorporated into and forms part of this Agreement.*
 
 ### A1. What We Collect
 
-To improve stability, reliability, and product development, the Software may collect
-limited telemetry. Collection is consent-based and can be turned off in the in-app
-My Profile window:
+To improve stability, reliability, and product development, the Software may collect limited telemetry:
 
-- Commands executed and usage counts.
-- Error logs and diagnostic events (file paths, model file names, and email addresses
-  are redacted before transmission).
-- Add-in version, build number, and the Revit version and interface language.
-- Approximate region (country/region, derived from your IP at submission — your IP is
-  not stored).
-- Anonymous installation and session identifiers.
-- **User Profile data (voluntary, opt-in)** — full name, preferred name, email,
-  company, role, experience with Revit, and selected discovery tags / free-text
-  detail — stored **encrypted** on the user's machine at `%AppData%\B45Labs\user-profile.enc`
-  and synced to B45 Labs servers **only if you opt in** to the optional data tier.
+- Commands executed (name/identifier), usage counts, usage timestamps, and the interface language of Revit or Navisworks (e.g. English, Portuguese).
+- Error and diagnostic data: error messages, stack traces, and the command active when an error occurred. File paths, model file names, and email addresses are automatically redacted before this data leaves your machine. The text of an error message can still name an element, view, or family.
+- Installation and update data: first-seen and last-updated timestamps, the current add-in version, and the version an upgrade came from.
+- Pseudonymous identifiers: a randomly generated `install_id` and `session_id`, containing no name, email, or other directly identifying information.
+- Location data: continent, country, and state or province, derived from your IP address at submission time. We never collect your city, street address, or GPS coordinates. The lookup is performed by a third-party service (ipwhois.app). B45 Labs does not read or save your IP address in its data; our hosting provider receives it with each request and may keep technical logs.
+- **User Profile data voluntarily provided** (full name, preferred name, email, company/studio, role/title, Revit experience, and how you found B45 Labs): providing this information is entirely optional. Your profile is stored **encrypted** on your computer (`%AppData%\B45Labs\user-profile.enc`); it is synced to B45 Labs servers only if you opt in (see A6).
+- **Information you send on purpose:** the message, product and version details, and language you send with Send Feedback (plus your name, company, and email if you fill them in, and an optional diagnostics box that is off by default), and the email, country, and language of a newsletter sign-up. Send Feedback works even when usage reporting is off, because sending it is your own action.
+
+Collection is **tiered**: command usage, error/diagnostic data, installation/update data, and coarse location are collected by default (legitimate interest) and can be turned off; **only user-profile sync requires opt-in**, via the "Also sync my profile" control in the in-app My Profile window (off by default). Update checks and notices are not controlled by that switch (see section 4).
+
+**AI chat in Connect.** When you use the chat in Connect, your prompt, the conversation and the tool results are sent directly from your computer to the AI provider you chose (Anthropic or OpenAI), under that provider's own terms. B45 Labs does not receive them. Model and project data contained in those messages are therefore outside the "we do not collect" statements of this Agreement.
 
 ### A2. What We Do NOT Collect
 
-We do not intentionally collect sensitive personal data, and we do not collect:
+We do not intentionally collect sensitive personal data, such as:
 
 - Health data, biometric identifiers, or government IDs.
-- Precise geolocation (street address / GPS coordinates).
+- Precise geolocation, including your city, street address, or GPS coordinates.
 - Financial account data or payment information.
 - Authentication credentials or passwords.
 - Project file contents, drawings, geometry, or BIM data.
-- Revit model names, element counts, link counts, or any project/model metadata.
-- File paths, folder locations, or file names.
-- Your Revit or Windows username.
-- Device or hardware characteristics (CPU, RAM, screen resolution) or operating-system details.
+- Model or family file names.
+- File paths or folder locations.
+- Your Revit, Navisworks, or Windows user name.
+- Device or hardware specifications (processor, memory, screen resolution) or operating-system details, except the optional diagnostics you tick when you send feedback.
 
 Donations or support transactions (if offered) are processed by third-party providers. B45 Labs does not receive or store payment details.
 
 ### A3. Purpose of Collection
 
-Telemetry is used strictly for internal purposes:
+Telemetry is used for the following purposes:
 
 - Debugging and fixing errors.
-- Improving performance and reliability across Revit 2023, 2024, 2025, 2026,
-  and 2027.
+- Improving performance and reliability across the supported Revit and Navisworks versions.
 - Prioritizing features and roadmap planning.
 - Monitoring distribution health (versions, compatibility signals).
-- Producing aggregated, anonymized metrics.
+- Producing aggregated, de-identified statistics, including for the publication and research uses described in A3.1.
+
+### A3.1 Aggregated Statistics, Publication, and Research
+
+B45 Labs may combine telemetry from many installations into aggregated, de-identified statistics, such as the number of installations and sessions, the continents, countries, and states or provinces where the Software is used, the most-used commands, version adoption, and usage trends over time ("Aggregated Statistics").
+
+B45 Labs may publish and disclose Aggregated Statistics, including on its website, in product, business, and professional materials, and in academic and scientific research, such as articles, theses, conference presentations, and the datasets that support them.
+
+Aggregated Statistics:
+
+- never include User Profile data (A1), even if you opted in to profile sync;
+- never include the text of error messages or stack traces, only counts and rates of errors;
+- never identify you, your employer, your clients, or your projects;
+- are published only in a form in which no individual or organization can reasonably be identified.
+
+B45 Labs does not attempt to re-identify any person or organization from Aggregated Statistics.
+
+Turning off "Share usage data" (A6) stops data from your installation from entering Aggregated Statistics produced after that point. Aggregated Statistics already published cannot be withdrawn, because they do not contain information that can be traced back to you.
 
 ### A4. Storage and Security
 
@@ -145,10 +173,10 @@ Collected data is stored on access-controlled infrastructure and limited to auth
 
 ### A5. Data Retention
 
-Usage and diagnostics data may be retained for up to **24 months** unless a longer retention is required to investigate recurring issues or to comply with legal obligations.
+We keep usage, diagnostic, installation, profile, and feedback data for up to **36 months** and then delete it, and earlier when you ask. Aggregated Statistics (A3.1) contain no personal data and may be retained indefinitely, including to support published research and comparisons over time.
 
 ### A6. Your Choices
 
-You control collection from the in-app **My Profile** window: a master **"Share anonymous usage data"** toggle turns telemetry off entirely, an **"Also sync my user profile"** toggle (off by default) controls the optional profile tier, and **Export my data** / **Erase my data** let you download or delete everything B45 holds for your install, including a server-side deletion request. You may also contact us for any of the above.
+From the in-app **My Profile** window you can: turn off usage reporting with the **"Share usage data"** toggle (nothing is uploaded and no location lookup is made); opt in to (or out of) user-profile sync with the **"Also sync my profile"** toggle (off by default); **export** a copy of your locally stored data; and **erase** all locally stored B45 Labs data (profile, usage history, and installation identifier) with **"Erase my data"**, which also asks our server to delete the records linked to your installation identifier. Newsletter sign-ups, forms you sent from the website, and feedback you sent are deleted on request: write to support@B45Labs.com. You may also contact us to request information about, correction of, or deletion of data associated with your usage. The full **Privacy Policy**, provided with the Software, governs this Annex.
 
 Contact: support@B45Labs.com
