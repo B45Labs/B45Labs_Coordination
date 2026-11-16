@@ -34,7 +34,7 @@ The name of each command or button you use, how many times, whether it worked, a
 When a B45 Labs command fails, an error report is sent with the command that was active.
 - **Coordination and Library:** the report carries Revit's error message and stack trace. File paths, Revit file names and e-mail addresses are removed before it leaves your computer. Revit can name an element, view or family in that message, and we cannot remove those names automatically.
 - **Connect:** the report carries only the exception type and its code, never a message.
-- **Wayfinder:** for an error it handled, only the exception type and its code; for a crash, a short message and a stack trace with file paths, model file names and e-mail addresses removed.
+- **Wayfinder:** for an error it handled, the exception type and its code (plus the type of an inner exception and how many times it happened); for a crash, a short message and a stack trace with file paths, model file names and e-mail addresses removed.
 Errors of other add-ins are not reported.
 
 ### 3.3 Installation and update data
@@ -58,9 +58,9 @@ My Profile (Coordination, Library and Wayfinder) holds your full name, preferred
 
 ## 4. Updates, notices and the remote lock
 
-At start-up each product asks our server whether a newer version exists and whether there is an announcement. Coordination also checks for notices about once a minute while Revit is open. These requests carry no identifier, but our server and GitHub see your IP address as any website does, and **they are not stopped by the usage switch**.
+At start-up each product asks our server whether a newer version exists. Coordination, Library and Connect also ask whether there is an announcement, and Coordination checks for notices about once a minute while Revit is open. Wayfinder asks once, at start-up, and has no announcement check. These requests carry no identifier, but our server and GitHub see your IP address as any website does, and **they are not stopped by the usage switch**.
 
-If you click **Update now**, the installer is downloaded from github.com, checked (SHA-256 and signature) and started; if anything is unexpected, the download page opens instead. Updating needs no administrator rights.
+If you click **Update now** in Coordination, Library or Connect, the installer is downloaded from github.com, checked (SHA-256 and signature) and started; if anything is unexpected, the download page opens instead. Updating needs no administrator rights. In Wayfinder, **Update now** opens the download page in your browser, and you download and run the installer yourself.
 
 B45 Labs can mark a version as no longer allowed. Such a version shows a notice and, for a version withdrawn for safety, **locks its commands until you update**.
 
@@ -165,3 +165,31 @@ We may update this policy. The "Last updated" date shows the latest revision. Ma
 ## 15. Contact
 
 B45 Labs Support, **support@b45labs.com**.
+
+## Annex: Files that Connect stores on your computer
+
+The usage queue and the failure queue are sent as described in sections 3.1 and 3.2. Everything else below is never transmitted to B45 Labs:
+
+- **Your AI provider API keys**, one encrypted file per provider under `%LocalAppData%\B45Labs\Connect\`, protected with Windows DPAPI for your Windows user account (section 5).
+- **Your microphone preference** for voice dictation, remembered on this PC.
+- **The MCP server log**, `%AppData%\B45Labs\Connect\mcp_server.log` (rotated once to `mcp_server.1.log` at 1 MB). Each line carries a timestamp, the tool name, the outcome and the elapsed time; **never** the arguments sent or the results returned, so no model data lands in it.
+- **The add-in error log**, `%AppData%\B45Labs\Connect\connect_errorlog.jsonl`, sanitised (file paths, model names and e-mail addresses are redacted when written).
+- **The installation memory**, `%LocalAppData%\B45Labs\Connect\installation_sent.json`: what Connect last sent in its installation record (versions, dates, language, the installation identifier). It holds no content and is never sent as a file.
+- **The usage queue**, `%LocalAppData%\B45Labs\Connect\usage_queue.jsonl`: the counts waiting to be sent (one short line per event, no content). It is emptied after each successful send, capped at 256 KB, and nothing is written to it while the usage switch is off.
+- **The failure queue**, `%LocalAppData%\B45Labs\Connect\failure_queue.jsonl`: the short failure reports of section 3.2 waiting to be sent (no message text and no content). Reports older than 3 days are dropped, and nothing is written to it while the usage switch is off.
+- **Your chat history**, `%LocalAppData%\B45Labs\Connect\history\`: your conversations with the Assistant (what you saw in the chat: your messages, the answers and the tool and error lines), kept on this PC so that "New chat" does not throw the previous one away. A chat can include names and numbers from your models, and the files are not protected with a password. They are never sent to B45 Labs; delete the folder, or the chats you do not want, at any time.
+- **An entry in Claude Desktop's configuration file** (`%AppData%\Claude\claude_desktop_config.json`) only when you click “Enable in Claude Desktop”; “Disable” removes it. The Software edits no other third-party configuration file.
+- **The embedded documentation index**: an offline copy of the B45 Labs command documentation shipped inside the add-in, which the Assistant reads locally to explain a command. It makes no network request.
+
+You can delete the log files at any time; they are recreated on the next run. Uninstalling removes the add-in and the MCP server; the key files and logs listed above may remain under your user folders and can be deleted by hand.
+
+## Annex: What Wayfinder stores on your computer
+
+| Data | Where | Why | Protected | How to remove |
+|---|---|---|---|---|
+| Your settings (FlyNav speeds, clash box distances, hidden prompts) | `%LOCALAPPDATA%\B45Labs\B45Wayfinder\settings.ini` | Remember your preferences | Plain text, no personal data | Delete the file, or uninstall and delete the folder |
+| Rows waiting to be sent, and the installation facts above | `%LOCALAPPDATA%\B45Labs\B45Wayfinder\telemetry\` | Send them when you are online (rows older than 3 days are dropped) | Plain text, tied to a random install ID, no name or e-mail | My Profile > Erase my data |
+| The installation ID | Shared with the other B45 Labs products (`%APPDATA%\B45Labs\installation_state.json`); if Wayfinder is the first one installed, `HKCU\Software\B45Labs` | One ID for the whole suite | A random number | My Profile > Erase my data |
+| Log files | `%LOCALAPPDATA%\B45Labs\B45Wayfinder\logs\` | Help you and B45 Labs support find a problem. You decide whether to send a log. | Plain text; may contain model/item names that appear in an error. **Logs are never sent.** | Delete the folder |
+| My Profile (name, role, preferences you type) and your logo | `%APPDATA%\B45Labs\user-profile.enc` and `%APPDATA%\B45Labs\branding\` | Greeting and branding inside the tools. **Shared with the other B45 Labs products on this computer**: what you fill in in one shows in all | Profile encrypted with Windows DPAPI (current user only) | My Profile > Erase my data |
+| Your privacy choice | `%APPDATA%\B45Labs\telemetry_consent.json` | Remember whether you turned data sharing off. **Shared with the other B45 Labs products**: one choice for all | Local file | My Profile > Privacy |
